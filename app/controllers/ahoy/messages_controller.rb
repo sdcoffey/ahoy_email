@@ -33,7 +33,7 @@ module Ahoy
         data[:controller] = self
         AhoyEmail::Utils.publish(:click, data)
 
-        redirect_to url
+        redirect_to url, allow_other_host: true
       else
         if AhoyEmail.invalid_redirect_url
           redirect_to AhoyEmail.invalid_redirect_url
